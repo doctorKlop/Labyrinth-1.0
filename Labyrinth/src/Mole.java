@@ -7,7 +7,7 @@ public class Mole {
 		int a = 0;
 		a = (int) (1+Math.random()*4);
 		switch (a) {
-		case 1: // шаг вверх
+		case 1: // step up
 			if (i-2 < 0) {
 				break;
 			}
@@ -20,7 +20,7 @@ public class Mole {
 			Lab[0][0] = i;
 			Lab[0][1] = j;
 			return Lab;
-		case 2: // шаг влево
+		case 2: // step left
 			if (j-2 < 0) {
 				break;
 			}
@@ -33,7 +33,7 @@ public class Mole {
 			Lab[0][0] = i;
 			Lab[0][1] = j;
 			return Lab;
-		case 3: // шаг вправо
+		case 3: // step right
 			if (j+2 > c-2) {
 				break;
 			}
@@ -46,7 +46,7 @@ public class Mole {
 			Lab[0][0] = i;
 			Lab[0][1] = j;
 			return Lab;
-		case 4: // шаг вниз
+		case 4: // step down
 			if (i+2 > b-2) {
 				break;
 			}
@@ -63,12 +63,12 @@ public class Mole {
 		Lab[0][0] = i;
 		Lab[0][1] = j;
 		return Lab;
-	} // один шаг
+	} // one step
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File("textLab");
 		PrintWriter pw = new PrintWriter(file);
-		int b = 31 , c = 31 ; // количество строк и столбцов
+		int b = 31 , c = 31 ; // number of rows and columns
 		int[][] Lab = new int[b][c];
 		int i = 0, j = 0, di = 0, i2 = 0, i3 = 0;
 		int count = 0, count2 = 0;
@@ -80,12 +80,12 @@ public class Mole {
 	    		 Lab[i][j] = 1;
 	    	 }
 	    	 i++;
-	    } // заполнение матрицы 1-ми
+	    } // filling in the matrix 1
 	   	Lab[1][1] = 0;
 	    i = 1;
 	    j = 1;
 	    backUpLab [di][0] = i;
-		backUpLab [di][1] = j; // стратовое положение
+		backUpLab [di][1] = j; // starting position
 	    
 	    while (pat == false) {
 	    	Mole.step(Lab, i, j, b, c);
@@ -111,7 +111,7 @@ public class Mole {
 	    	
 	    }
 	    
-	    Lab[1][0] = 0; // вход
+	    Lab[1][0] = 0; // input
 	    
 	    while (i2 < b-2) {
 	    	 if (Lab[i2][c-2] == 0) {
@@ -119,7 +119,7 @@ public class Mole {
 	    		A[i3++] = i2; 
 	    	 }
 	    	 i2++;
-	    } //все строки с нулем в предпоследнем столбце
+	    } //all rows with 0 in the penultimate column
 	    
 	    Lab[A[(int)(Math.random()*count2)]][c-1] = 0;
 	    
@@ -133,7 +133,7 @@ public class Mole {
 				 }
 		     }
 			 pw.println();
-		} // вывод матрицы
+		} // matrix output
 	    pw.close(); 
 	}
 
